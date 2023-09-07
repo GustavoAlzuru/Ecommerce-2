@@ -35,8 +35,8 @@ export const padlock = () => {
         <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
-            width="40"
-            height="40"
+            width="30"
+            height="30"
             viewBox="0 0 96.108 122.88"
         >
             <g>

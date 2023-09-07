@@ -36,7 +36,7 @@ const Cart = ({ on, handleOn }) => {
     return (
         on && (
             <div className='min-h-screen w-screen bg-[#a8a8a8c7] fixed'>
-                <div className='fixed top-0 right-0 w-64 min-h-screen bg-[#242831] p-6 text-right flex flex-col resize-x'>
+                <div className='fixed top-0 right-0 w-72 min-h-full bg-[#242831] p-6 text-right flex flex-col  overflow-y-auto bottom-0'>
                     <div>
                         <button onClick={() => handleOn()}>{closeIcon()}</button>
                     </div>
@@ -47,7 +47,7 @@ const Cart = ({ on, handleOn }) => {
                                     <div className='h-[0.1px] bg-slate-300 mt-4 mb-4'></div>
                                     <h3>{cart.title}</h3>
                                     <p>Price: ${cart.price} x Quantity {cart.quantity}</p>
-                                    <p>Total ${parseFloat((cart.price * cart.quantity).toFixed(2))}</p>
+                                    <p className='text-lg'>${parseFloat((cart.price * cart.quantity).toFixed(2))}</p>
                                     <div className='flex justify-end items-center gap-1'>
                                         <select className='rounded-3xl pl-1 pr-1 outline-none text-black m-1' value={cart.quantity} onChange={(e) => handleChange(e, cart.id)}>
                                             {itemsValue(cart.quantity)}

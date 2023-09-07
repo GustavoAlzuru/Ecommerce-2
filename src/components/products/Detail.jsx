@@ -31,7 +31,7 @@ const Detail = () => {
     }
     const returnStars = (rate) => {
         const rating = Math.round(parseInt(rate))
-       return Array(Math.round(rate)).fill('⭐') 
+       return Array(Math.round(rating)).fill('⭐') 
     }
     return (
         <div className='w-[50%] m-auto pt-20 pb-4'>
