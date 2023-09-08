@@ -12,7 +12,7 @@ import CartProvider from './context/CartProd'
 function App() {
   const { handleOn, on } = useOn()
   const location = useLocation()
-  const isCheckoutPage = location.pathname === '/checkout'
+  const isCheckoutPage = location.pathname === '/checkout' || location.pathname === '/sign-in'
   return (
       <CartProvider>
         {!isCheckoutPage && (

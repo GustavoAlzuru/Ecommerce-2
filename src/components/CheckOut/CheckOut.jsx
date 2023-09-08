@@ -2,9 +2,25 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import OutNavBar from './OutNavBar';
 import { CartProd } from '../../context/CartProd';
+import useQuantity from '../../hooks/useQuantity';
+import useTotalPrice from '../../hooks/useTotalPrice';
 
 const CheckOut = () => {
-    const { cartProducts } = useContext(CartProd)
+    const { cartProducts, setCartProducts } = useContext(CartProd)
+    const {formattedTotal} = useTotalPrice()
+    const { itemsValue } = useQuantity()
+    const handleChange = (e, id) => {
+        const updatedCartProd = cartProducts.map(cart => {
+            if (id === cart.id) {
+                return { ...cart, quantity: parseInt(e.target.value) }
+            }
+            return cart
+        })
+        setCartProducts(updatedCartProd)
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
     return (
         <div>
             <OutNavBar />
@@ -31,9 +47,9 @@ const CheckOut = () => {
                                     </div>
                                 </div>
                                 <div className="flex items-center space-x-4">
-                                    <p className="font-semibold">${product.price}</p>
-                                    <select value={product.quantity}>
-                                        <option value={product.quantity}>{product.quantity}</option>
+                                    <p className='text-lg'>${parseFloat((product.price * product.quantity).toFixed(2))}</p>
+                                    <select value={product.quantity} onChange={(e) => handleChange(e, product.id)}>
+                                        {itemsValue(product.quantity)}
                                     </select>
                                 </div>
                             </div>
@@ -41,14 +57,14 @@ const CheckOut = () => {
                         <div className="mt-4">
                             <p className="text-xl font-semibold">
                                 Total: $
-                                {cartProducts.reduce((total, product) => total + product.price, 0)}
+                                {formattedTotal}
                             </p>
                         </div>
 
                         {/* FORM FOR PAYMENT */}
                         <div className="mt-8">
                             <h2 className="text-2xl font-semibold mb-4">Payment & Address</h2>
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 {/* Billing Address */}
                                 <div className="mb-4">
                                     <label htmlFor="billingAddress" className="block text-gray-600">Billing Address</label>

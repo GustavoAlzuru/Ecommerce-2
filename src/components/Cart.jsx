@@ -2,25 +2,13 @@ import React, { useContext } from 'react';
 import { closeIcon, trashIcon } from '../assets/svgs/Icons';
 import { CartProd } from '../context/CartProd';
 import { Link } from 'react-router-dom';
+import useQuantity from '../hooks/useQuantity';
+import useTotalPrice from '../hooks/useTotalPrice';
 
 const Cart = ({ on, handleOn }) => {
     const { cartProducts, clearCart, setCartProducts } = useContext(CartProd)
-    const prices = cartProducts.map(prod => {
-        const results = prod.price * prod.quantity
-        return parseFloat(results.toFixed(2))
-    })
-    const total = prices.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue;
-    }, 0);
-    const formattedTotal = total.toFixed(2);
-    const itemsValue = (value) => {
-        const data = [1, 2, 3, 4, 5, 6]
-        return data.map(item => (
-            <option value={item} key={item}>
-                {item}
-            </option>
-        ))
-    }
+    const {itemsValue} = useQuantity()
+    const {formattedTotal} = useTotalPrice()
     const handleChange = (e, id) => {
         const updatedCartProd = cartProducts.map(cart => {
             if (id === cart.id) {
