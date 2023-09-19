@@ -12,6 +12,6 @@ function useTotalPrice() {
     }, 0);
     const formattedTotal = total.toFixed(2)
 
-    return {formattedTotal}
+    return { formattedTotal }
 }
 export default useTotalPrice

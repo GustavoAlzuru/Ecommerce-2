@@ -7,7 +7,7 @@ import useTotalPrice from '../../hooks/useTotalPrice';
 
 const CheckOut = () => {
     const { cartProducts, setCartProducts } = useContext(CartProd)
-    const {formattedTotal} = useTotalPrice()
+    const { formattedTotal } = useTotalPrice()
     const { itemsValue } = useQuantity()
     const handleChange = (e, id) => {
         const updatedCartProd = cartProducts.map(cart => {

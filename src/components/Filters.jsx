@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Filters = ({setCategory, setPrices}) => {
+const Filters = ({ setCategory, setPrices }) => {
 
   return (
     <div className='pt-20 flex gap-5'>

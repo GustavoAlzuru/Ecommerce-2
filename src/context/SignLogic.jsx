@@ -9,7 +9,7 @@ const SignProvider = ({ children }) => {
         setUsername('')
     }
     return (
-        <SignLogic.Provider value={{isLogin, setIsLogin, username, setUsername, logOffUser}}>
+        <SignLogic.Provider value={{ isLogin, setIsLogin, username, setUsername, logOffUser }}>
             {children}
         </SignLogic.Provider>
     )

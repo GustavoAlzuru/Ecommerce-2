@@ -24,10 +24,8 @@ const Register = () => {
             email,
             password
         }
-        console.log(user)
         const sendUser = await (userRegister(user))
         if (sendUser.error) {
-            console.log('error')
             setError(sendUser.error)
         } else {
             navigate('/sign-in')

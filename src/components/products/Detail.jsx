@@ -31,7 +31,7 @@ const Detail = () => {
     }
     const returnStars = (rate) => {
         const rating = Math.round(parseInt(rate))
-       return Array(Math.round(rating)).fill('⭐') 
+        return Array(Math.round(rating)).fill('⭐')
     }
     return (
         <div className='w-[50%] m-auto pt-20 pb-4'>
@@ -62,7 +62,7 @@ const Detail = () => {
                             <option value="6">6</option>
                         </select>
                         {cartProducts.some((cartItem) => cartItem.id === product.id) ? <span className='text-lg text-[#2d323e]'>Product is in cart</span> : <button className='border bg-[#f3ff46] pt-1 pb-1 pl-4 pr-4 rounded-3xl hover:bg-[#dde662]' onClick={() => handleProductCart(product)}>Add to cart</button>}
-                        
+
                     </span>
                 </div>
             </div>

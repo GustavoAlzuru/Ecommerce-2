@@ -7,7 +7,7 @@ const CartProvider = ({ children }) => {
         setCartProducts([])
     }
     return (
-        <CartProd.Provider value={{cartProducts, setCartProducts, clearCart}}>
+        <CartProd.Provider value={{ cartProducts, setCartProducts, clearCart }}>
             {children}
         </CartProd.Provider>
     )

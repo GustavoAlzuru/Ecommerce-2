@@ -15,20 +15,20 @@ function App() {
   const [search, setSearch] = useState('')
 
   const updateSearch = (value) => {
-    if(value.startsWith(' ')) return
+    if (value.startsWith(' ')) return
     setSearch(value)
   }
   return (
     <CartProvider>
       {!isCheckoutPage && (
         <>
-          <Navbar handleOn={handleOn} updateSearch={updateSearch} search={search}/>
+          <Navbar handleOn={handleOn} updateSearch={updateSearch} search={search} />
           <Cart on={on} handleOn={handleOn} />
         </>
       )}
       <div className='bg-[#f3f3f3d8] min-h-screen flex flex-col'>
         <div className='flex-1'>
-          <Public search={search}/>
+          <Public search={search} />
         </div>
         <Footer />
       </div>

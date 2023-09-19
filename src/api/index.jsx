@@ -38,10 +38,10 @@ export const userRegister = async (user) => {
     }
 }
 
-/* USER LOGIN ENDPOINT */ 
+/* USER LOGIN ENDPOINT */
 
 export const userLogin = async (user) => {
-    try{
+    try {
         const login = await fetch('http://localhost:4000/login', {
             method: 'POST',
             body: JSON.stringify(user),
@@ -51,7 +51,23 @@ export const userLogin = async (user) => {
         })
         const response = login.json()
         return response
-    }catch (err) {
+    } catch (err) {
         console.error(err)
     }
 }
+
+/* ENDPOINT TO GET INFO OF THE LOGGED USER*/
+
+export const userInfo = async (token) => {
+    try {
+        const response = await fetch('http://localhost:4000/user/data', {
+            headers: {
+                'Authorization': `bearer ${token}`
+            }
+        });
+        const data = await response.json();
+        return data
+    } catch (err) {
+        console.error(err);
+    }
+};

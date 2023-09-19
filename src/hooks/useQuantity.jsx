@@ -10,9 +10,9 @@ function useQuantity(initialValue) {
   const itemsValue = (value) => {
     const data = [1, 2, 3, 4, 5, 6]
     return data.map(item => (
-        <option value={item} key={item}>
-            {item}
-        </option>
+      <option value={item} key={item}>
+        {item}
+      </option>
     ))
   }
   return {

@@ -7,8 +7,8 @@ import useTotalPrice from '../hooks/useTotalPrice';
 
 const Cart = ({ on, handleOn }) => {
     const { cartProducts, clearCart, setCartProducts } = useContext(CartProd)
-    const {itemsValue} = useQuantity()
-    const {formattedTotal} = useTotalPrice()
+    const { itemsValue } = useQuantity()
+    const { formattedTotal } = useTotalPrice()
     const handleChange = (e, id) => {
         const updatedCartProd = cartProducts.map(cart => {
             if (id === cart.id) {
@@ -34,7 +34,7 @@ const Cart = ({ on, handleOn }) => {
                                 <li key={cart.id} className='text-black'>
                                     <div className='h-[0.1px] bg-slate-300 mt-4 mb-4'></div>
                                     <div className='flex justify-center'>
-                                        <img src={cart.image} alt={cart.title}  className='w-36 h-36 object-contain'/>
+                                        <img src={cart.image} alt={cart.title} className='w-36 h-36 object-contain' />
                                     </div>
                                     <p>Price: ${cart.price} x Quantity {cart.quantity}</p>
                                     <p className='text-lg'>${parseFloat((cart.price * cart.quantity).toFixed(2))}</p>
