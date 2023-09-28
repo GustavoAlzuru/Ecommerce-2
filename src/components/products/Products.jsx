@@ -27,14 +27,16 @@ const Products = ({ search }) => {
         filteredProducts.sort((a, b) => b.price - a.price)
     }
     return (
+        <>
+        <Filters setCategory={setCategory} setPrices={setPrices} />
         <div className='w-[60%] m-auto'>
-            <Filters setCategory={setCategory} setPrices={setPrices} />
             <div className='grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5 pt-2 pb-10'>
                 {filteredProducts.map(product => (
                     <Product product={product} key={product.id} />
                 ))}
             </div>
         </div>
+        </>
     )
 }
 

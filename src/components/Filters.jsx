@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 const Filters = ({ setCategory, setPrices }) => {
 
   return (
-    <div className='pt-20 flex gap-5'>
+    <div className='pt-20 flex gap-5 mx-auto w-[80%] justify-center'>
       <div>
         <label>Categories: </label>
         <select
-          className='rounded-3xl pl-1 pr-1 outline-none text-black m-1 border'
+          className='rounded-3xl pl-1 pr-1 outline-none text-black m-1 border text-xs md:text-base'
           onChange={(e) => setCategory(e.target.value)}
         >
           <optgroup label='Categories: ' className='text-xs'>
@@ -22,7 +22,7 @@ const Filters = ({ setCategory, setPrices }) => {
       <div>
         <label>Sort Prices: </label>
         <select
-          className='rounded-3xl pl-1 pr-1 outline-none text-black m-1 border'
+          className='rounded-3xl pl-1 pr-1 outline-none text-black m-1 border text-xs md:text-base'
           onChange={(e) => setPrices(e.target.value)}
         >
           <optgroup label='Sort By:' className='text-xs'>
