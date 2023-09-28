@@ -1,5 +1,8 @@
 # E-Commerce Project (Work in Progress)
 
+## Deployment Link
+[Capstone-Project](https://ecommerce-capstone-project.netlify.app/)
+
 ## About the Project
 
 This is an ongoing e-commerce project inspired by Amazon. It aims to create a feature-rich online shopping platform with a user-friendly interface and a wide selection of products.
